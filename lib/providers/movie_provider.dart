@@ -11,7 +11,7 @@ final moviesProvider = FutureProvider<List<Movie>>((ref) async {
   final movieType = ref.watch(movieTypeProvider);
   final dio = ref.watch(dioProvider);
   final response = await dio.get("movie/${movieType.value}",
-      queryParameters: {"api-key": EnvironmentConfig.API_KEY});
+      queryParameters: {"api_key": EnvironmentConfig.API_KEY});
 
   return MovieResponse.fromJson(response.data).results;
 });

@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart';
 
 class Movie {
   final bool adult;
@@ -63,7 +63,7 @@ class MovieResponse {
       required this.totalPages,
       required this.totalResults});
 
-   MovieResponse.fromJson(Map<String, dynamic> json) {
+  MovieResponse.fromJson(Map<String, dynamic> json) {
     try {
       page = json['page'];
       if (json['results'] != null) {
