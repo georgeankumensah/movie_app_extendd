@@ -1,3 +1,5 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import 'package:flutter/foundation.dart';
+
 class Movie {
   final bool adult;
   final String backdropPath;
@@ -50,10 +52,10 @@ class Movie {
 }
 
 class MovieResponse {
-  int page;
-  List<Movie> results;
-  int totalPages;
-  int totalResults;
+  late int page;
+  late List<Movie> results;
+  late int totalPages;
+  late int totalResults;
 
   MovieResponse(
       {required this.page,
@@ -61,7 +63,7 @@ class MovieResponse {
       required this.totalPages,
       required this.totalResults});
 
-  MovieResponse.fromJson(Map<String, dynamic> json) {
+   MovieResponse.fromJson(Map<String, dynamic> json) {
     try {
       page = json['page'];
       if (json['results'] != null) {
@@ -73,7 +75,9 @@ class MovieResponse {
       totalPages = json['total_pages'];
       totalResults = json['total_results'];
     } catch (error) {
-      print("Error is $error");
+      if (kDebugMode) {
+        print("Error is $error");
+      }
     }
   }
 }
